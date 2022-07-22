@@ -46,9 +46,9 @@ input.sheet-tab4:checked ~ div.sheet-tab4
 }
 
 /* show the selected tab */
-.charsheet .sheet-tabstoggle[value="Identité"] ~ div.sheet-Identite,
+.charsheet .sheet-tabstoggle[value="Identite"] ~ div.sheet-Identite,
 .charsheet .sheet-tabstoggle[value="Inventaire"] ~ div.sheet-Inventaire,
-.charsheet .sheet-tabstoggle[value="Capacités"] ~ div.sheet-Capacites,
+.charsheet .sheet-tabstoggle[value="Capacites"] ~ div.sheet-Capacites,
 .charsheet .sheet-tabstoggle[value="Modificateurs"] ~ div.sheet-Modificateurs {
     display: block;
 }
