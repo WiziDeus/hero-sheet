@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"> <meta charset="utf-8" />  
+
+<input type="radio" name="attr_tab" class="sheet-tab1" value="1" checked="checked">Identité & Compétences<span title="Identite"></span>
+<input type="radio" name="attr_tab" class="sheet-tab2" value="2">Inventaire<span title="Inventaire"></span>
+<input type="radio" name="attr_tab" class="sheet-tab3" value="3">Capacités<span title="Capacites"></span>
+<input type="radio" name="attr_tab" class="sheet-tab4" value="4">Modificateurs<span title="Modificateurs"></span>
+
+<div class="sheet-tab-content sheet-tab1">
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999802282457698404/Identite_et_Compe.png" style="margin-bottom: 25px;">
+        <div class="sheet-col">
+                <table style="width: 95%;">
+                    <tr>
+                        <td><img src="https://cdn.discordapp.com/attachments/654444450088747009/999797746942885929/Nom.png" style="height: 40px;"> </td>
+                        <td><input type="text" name="attr_character_name"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.discordapp.com/attachments/654444450088747009/999797747429421136/Alter_Ego.png" style="height: 40px;"> </td>
+                        <td><input type="text" name="attr_alter_ego"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.discordapp.com/attachments/654444450088747009/999797746305343518/Age.png" style="height: 40px;"> </td>
+                        <td><input type="text" name="attr_age"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.discordapp.com/attachments/654444450088747009/999797749199421580/Poids.png" style="height: 40px;"></td>
+                        <td><input type="text" name="attr_poids"> </td>
+                    </tr>
+                    <tr>
+                        <td><img src="https://cdn.discordapp.com/attachments/654444450088747009/999797745827201156/Taille.png" style="height: 40px;"></td>
+                        <td><input type="text" name="attr_taille"> </td>
+                    </tr>
+                </table>
+        </div>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808123516760165/Ressources.png" style="margin-bottom: 25px;">
+    <div class="sheet-col">
+        <table style="width: 100%;">
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999859546124206160/VIT.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_pvp" value="0"> </td>
+                <td><input type="number" name="attr_pv" value="0"> </td>
+                <td><input type="number" name="attr_pv_max" value="[[(@{PV_p}+@{PV_mo})*5]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999859545708953610/END.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_endp" value="0"> </td>
+                <td><input type="number" name="attr_end" value="0"> </td>
+                <td><input type="number" name="attr_end_max" value="[[(@{END_p}+@{END_mo})*5]]"disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999859545297928223/BAT.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_batp" value="0"> </td>
+                <td><input type="number" name="attr_bat" value="0"> </td>
+                <td><input type="number" name="attr_bat_max" value="[[(@{BAT_p}+@{BAT_mo})*2]]"disabled="true"> </td>
+            </tr>
+        </table>
+    </div>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808123189612554/Statistiques.png">  
+        <table style="width: 100%;">
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810459161071656/Competences_Intellectuelle.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_intel_p" value="0"> </td>
+                <td><input type="number" name="attr_intel" value="[[@{intel_p}+@{intel_mo}]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014159016108102/Technologie.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_techno_p" value="0"> </td>
+                <td><input type="number" name="attr_techno" value="[[@{techno_p}+@{techno_mo}+@{intel}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_techno" value="&{template:default} {{name=@{character_name}}} {{Compétence=Technologie}} {{Valeur=[[1d10! + @{techno} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014003566813264/Investigation.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_inves_p" value="0"> </td>
+                <td><input type="number" name="attr_inves" value="[[@{inves_p}+@{inves_mo}+@{intel}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_inves" value="&{template:default} {{name=@{character_name}}} {{Compétence=Investigation}} {{Valeur=[[1d10! + @{inves} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014091148070922/Vigilance.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_vigi_p" value="0"> </td>
+                <td><input type="number" name="attr_vigi" value="[[@{vigi_p}+@{vigi_mo}+@{intel}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_vigi" value="&{template:default} {{name=@{character_name}}} {{Compétence=Vigilance}} {{Valeur=[[1d10! + @{vigi} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014055249027072/Sciences.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_sciences_p" value="0"> </td>
+                <td><input type="number" name="attr_sciences" value="[[@{sciences_p}+@{sciences_mo}+@{intel}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_sciences" value="&{template:default} {{name=@{character_name}}} {{Compétence=Sciences}} {{Valeur=[[1d10! + @{sciences}} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810536126558218/Competences_Sociales.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_social_p" value="0"> </td>
+                <td><input type="number" name="attr_social" value="[[@{social_p}+@{social_mo}]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810333172580513/Charisme.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_char_p" value="0"> </td>
+                <td><input type="number" name="attr_char" value="[[@{char_p}+@{char_mo}+@{social}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_char" value="&{template:default} {{name=@{character_name}}} {{Compétence=Charisme}} {{Valeur=[[1d10! + @{char} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810261387063326/Media.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_media_p" value="0"> </td>
+                <td><input type="number" name="attr_media" value="[[@{media_p}+@{media_mo}+@{social}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_media" value="&{template:default} {{name=@{character_name}}} {{Compétence=Média}} {{Valeur=[[1d10! + @{media} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810284099207289/Intimidation.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_intim_p" value="0"> </td>
+                <td><input type="number" name="attr_intim" value="[[@{intim_p}+@{intim_mo}+@{social}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_intim" value="&{template:default} {{name=@{character_name}}} {{Compétence=Intimidation}} {{Valeur=[[1d10! + @{intim} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810258362957885/Psychologie.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_psy_p" value="0"> </td>
+                <td><input type="number" name="attr_psy" value="[[@{psy_p}+@{psy_mo}+@{social}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_psy" value="&{template:default} {{name=@{character_name}}} {{Compétence=Psychologie}} {{Valeur=[[1d10! + @{psy} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810554388562031/Competences_Spirituelles.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_spiri_p" value="0"> </td>
+                <td><input type="number" name="attr_spiri" value="[[@{spiri_p}+@{spiri_mo}]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810249869492264/Sang_froid.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_sf_p" value="0"> </td>
+                <td><input type="number" name="attr_sf" value="[[@{sf_p}+@{sf_mo}+@{spiri}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_sf" value="&{template:default} {{name=@{character_name}}} {{Compétence=Sang Froid}} {{Valeur=[[1d10! + @{sf} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810284476711022/Incantation.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_incan_p" value="0"> </td>
+                <td><input type="number" name="attr_incan" value="[[@{incan_p}+@{incan_mo}+@{spiri}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_incan" value="&{template:default} {{name=@{character_name}}} {{Compétence=Incantation}} {{Valeur=[[1d10! + @{incan} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810232433787081/Survie.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_survie_p" value="0"> </td>
+                <td><input type="number" name="attr_survie" value="[[@{survie_p}+@{survie_mo}+@{spiri}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_survie" value="&{template:default} {{name=@{character_name}}} {{Compétence=Survie}} {{Valeur=[[1d10! + @{survie} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810170702004354/Volonte.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_vol_p" value="0"> </td>
+                <td><input type="number" name="attr_vol" value="[[@{vol_p}+@{vol_mo}+@{spiri}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_vol" value="&{template:default} {{name=@{character_name}}} {{Compétence=Volonté}} {{Valeur=[[1d10! + @{vol} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810520049782784/competences_Physiques.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_phys_p" value="0"> </td>
+                <td><input type="number" name="attr_phys" value="[[@{phys_p}+@{phys_mo}]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014029118509137/force.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_for_p" value="0"> </td>
+                <td><input type="number" name="attr_for" value="[[@{vol_p}+@{vol_mo}+@{phys}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_for" value="&{template:default} {{name=@{character_name}}} {{Compétence=Force}} {{Valeur=[[1d10! + @{for} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810337538854952/Bagarre.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_bag_p" value="0"> </td>
+                <td><input type="number" name="attr_bag" value="[[@{bag_p}+@{bag_mo}+@{phys}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_bag" value="&{template:default} {{name=@{character_name}}} {{Compétence=Bagarre}} {{Valeur=[[1d10! + @{vol} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000028298509828177/Athletisme.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_athl_p" value="0"> </td>
+                <td><input type="number" name="attr_athl" value="[[@{athl_p}+@{athl_mo}+@{phys}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_athl" value="&{template:default} {{name=@{character_name}}} {{Compétence=Athlétisme}} {{Valeur=[[1d10! + @{vol} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810200292835418/vitesse.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_vite_p" value="0"> </td>
+                <td><input type="number" name="attr_vite" value="[[@{vite_p}+@{vite_mo}+@{phys}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_vite" value="&{template:default} {{name=@{character_name}}} {{Compétence=Vitesse}} {{Valeur=[[1d10! + @{vite} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810570314330132/Competences_Techniques.png" style="height: 40px; margin-top: 10px;"> </td>
+                <td><input type="number" name="attr_tech_p" value="0"> </td>
+                <td><input type="number" name="attr_tech" value="[[@{tech_p}+@{tech_mo}]]" disabled="true"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810351656865933/Art_Martiaux.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_am_p" value="0"> </td>
+                <td><input type="number" name="attr_am" value="[[@{am_p}+@{am_mo}+@{tech}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_am" value="&{template:default} {{name=@{character_name}}} {{Compétence=Art Martiaux}} {{Valeur=[[1d10! + @{am} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810359194042438/Adresse.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_adre_p" value="0"> </td>
+                <td><input type="number" name="attr_adre" value="[[@{adre_p}+@{adre_mo}+@{tech}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_adre" value="&{template:default} {{name=@{character_name}}} {{Compétence=Adresse}} {{Valeur=[[1d10! + @{adre} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810296774397993/Furtivite.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_fur_p" value="0"> </td>
+                <td><input type="number" name="attr_fur" value="[[@{fur_p}+@{fur_mo}+@{tech}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_fur" value="&{template:default} {{name=@{character_name}}} {{Compétence=Furtivité}} {{Valeur=[[1d10! + @{fur} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+            <tr>
+                <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810322661654669/Esquive.png" style="height: 40px;"> </td>
+                <td><input type="number" name="attr_esq_p" value="0"> </td>
+                <td><input type="number" name="attr_esq" value="[[@{esq_p}+@{esq_mo}+@{tech}]]" disabled="true"> </td>
+                <td><button type="roll" name="roll_esq" value="&{template:default} {{name=@{character_name}}} {{Compétence=Esquive}} {{Valeur=[[1d10! + @{esq} + ?{Modificateur?|0}]]}}"> </td>
+            </tr>
+        </table>
+</div>
+
+<div class="sheet-tab-content sheet-tab2">
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803697016082522/Invetaire.png">
+        <table>
+            <td>
+                <select id="attr_slotar" name="Armure">
+                <option value="2">Armure de Base</option>
+                <option value="4">Armure Améliorée</option>
+                <option value="6">Armure Spéciale</option>
+                <option value="8">Super Armure</option>
+            </td>
+            <td><input type="number" value="@{slotar}" hidden="true"></td>
+        </table>
+        <table>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808121205706852/Ameliorations.png">
+    <table>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099645520871534/Qualite.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+        </tr>
+        <fieldset class="repeating_upgrades">
+                    <tr>
+                    <td><input type="text" name="attr_upgrades"/></td>
+                    <td>
+                        <select id="attr_UpQuali" name="UpQuali">
+                        <option value="Commune">Commune</option>
+                        <option value="Rare">Rare</option>
+                        <option value="Excellente">Excellente</option>
+                        <option value="Unique">Unique</option>
+                    </td>
+                    <td><textarea name="attr_upgrade_note"style="width:400px; height: 20px;"></textarea></td>
+                    </tr>
+    </table>
+    </fieldset>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808124615659560/Gadgets_dArmure.png">
+    <table>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044070281356/Qte.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044384845995/Max.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+        </tr>
+        <fieldset class="repeating_gadget">
+            <tr>
+            <td><input type="text" name="attr_gadget_nom"/></td>
+            <td><input type="number" name="attr_gadgetnbr" value="0"></td>
+            <td><input type="number" name="attr_gadgetnbr_max" value="0"></td>
+            <td><textarea name="attr_gadget_note"style="width:400px; height: 20px;"></textarea></td>
+            </tr>
+        </fieldset>
+    </table>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808124267548782/Sac_a_Dos.png">
+    <table>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044070281356/Qte.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+        </tr>
+        <fieldset class="repeating_sacados">
+            <tr>
+            <td><input type="text" name="attr_sacados_nom"/></td>
+            <td><input type="number" name="attr_sacados" value="0"></td>
+            <td><textarea name="attr_sacados_note"style="width:400px; height: 20px;"></textarea></td>
+            </tr>
+        </fieldset>
+    </table>
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999808123906818109/Iventaire_de_QG.png">
+    <table>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044070281356/Qte.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+        </tr>
+        <fieldset class="repeating_base">
+            <tr>
+            <td><input type="text" name="attr_base_nom"/></td>
+            <td><input type="number" name="attr_basenbr" value="0"></td>
+            <td><textarea name="attr_base_note"style="width:400px; height: 20px;"></textarea></td>
+            </tr>
+        </fieldset>
+    </table>
+</div>
+<div class="sheet-tab-content sheet-tab3">
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803696676347974/Capacite.png">   
+    <img src=https://cdn.discordapp.com/attachments/654444450088747009/999808122094887012/Capacite_Passives.png>
+    <table>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044812656700/cout.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043076227082/Portee.png" style="height: 40px;"> </td>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+        </tr>
+        <fieldset class="repeating_base">
+            <tr>
+            <td><input type="text" name="attr_passive_nom"/></td>
+            <td><input type="text" name="attr_passive_cout"/></td>
+            <td><input type="number" name="attr_passive_range" value="0"></td>
+            <td><textarea name="attr_passive_note"style="width:400px; height: 20px;"></textarea></td>
+            </tr>
+        </fieldset>
+    </table>
+<img src=https://cdn.discordapp.com/attachments/654444450088747009/999808121658671104/Capacite_Actives.png>
+<table>
+    <tr>
+        <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043713753129/nm.png" style="height: 40px;"> </td>
+        <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099044812656700/cout.png" style="height: 40px;"> </td>
+        <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099043076227082/Portee.png" style="height: 40px;"> </td>
+        <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000099045332766781/NOtes.png" style="height: 40px;"> </td>
+    </tr>
+    <fieldset class="repeating_base">
+        <tr>
+        <td><input type="text" name="attr_active_nom"/></td>
+        <td><input type="text" name="attr_active_cout"/></td>
+        <td><input type="number" name="attr_active_range" value="0"></td>
+        <td><textarea name="attr_active_note"style="width:400px; height: 20px;"></textarea></td>
+        </tr>
+    </fieldset>
+</table>
+<img src=https://cdn.discordapp.com/attachments/654444450088747009/999808123453837382/Archetype.png>
+<img src=https://cdn.discordapp.com/attachments/654444450088747009/999808122816299018/Archetype_1.png>
+<td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810424482566224/avantages_.png" style="height: 40px;"> </td>
+<table>
+    <tr>
+    <td><input type="text" name="attr_a1l1_cout"/></td>
+    <td><textarea name="attr_a1l1_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_a1l2_cout"/></td>
+        <td><textarea name="attr_a1l2_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_a1l3_cout"/></td>
+        <td><textarea name="attr_a1l3_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_a1l4_cout"/></td>
+        <td><textarea name="attr_a1l4_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+<td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810412272963644/faiblesses.png" style="height: 40px;"> </td>   
+</table>
+<table>
+    <tr>
+    <td><input type="text" name="attr_f1l1_cout"/></td>
+    <td><textarea name="attr_a1l1_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_f1l2_cout"/></td>
+        <td><textarea name="attr_f1l2_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>    
+</table>
+<img src="https://cdn.discordapp.com/attachments/654444450088747009/999808122430427316/Archetype.png"> 
+<table>
+    <tr>
+    <td><input type="text" name="attr_a2l1_cout"/></td>
+    <td><textarea name="attr_a2l1_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_a2l2_cout"/></td>
+        <td><textarea name="attr_a2l2_note"style="width:400px; height: 20px;"></textarea></td>
+    </tr>    
+</table>
+</div>
+<div class="sheet-tab-content sheet-tab4">
+    <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803696332427395/Modificateurs.png">
+    <table style="width: 100%;">
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810459161071656/Competences_Intellectuelle.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_intel_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014159016108102/Technologie.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_techno_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014003566813264/Investigation.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_inves_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014091148070922/Vigilance.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_vigi_mo" value="0"> </td>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014055249027072/Sciences.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_sciences_mo" value="0"> </td>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810536126558218/Competences_Sociales.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_social_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810333172580513/Charisme.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_char_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810261387063326/Media.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_media_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810284099207289/Intimidation.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_intim_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810258362957885/Psychologie.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_psy_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810554388562031/Competences_Spirituelles.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_spiri_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810249869492264/Sang_froid.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_sf_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810284476711022/Incantation.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_incan_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810232433787081/Survie.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_survie_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810170702004354/Volonte.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_vol_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810520049782784/competences_Physiques.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_phys_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000014029118509137/force.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_for_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810337538854952/Bagarre.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_bag_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/1000028298509828177/Athletisme.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_athl_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810200292835418/vitesse.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_vite_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810570314330132/Competences_Techniques.png" style="height: 40px; margin-top: 10px;"> </td>
+            <td><input type="number" name="attr_tech_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810351656865933/Art_Martiaux.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_am_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810359194042438/Adresse.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_adre_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810296774397993/Furtivite.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_fur_mo" value="0"> </td>
+        </tr>
+        <tr>
+            <td><img src="https://cdn.discordapp.com/attachments/999810062761607178/999810322661654669/Esquive.png" style="height: 40px;"> </td>
+            <td><input type="number" name="attr_esq_mo" value="0"> </td>
+        </tr>
+    </table>
+</div>
