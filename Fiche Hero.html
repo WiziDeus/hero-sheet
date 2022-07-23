@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml"> <meta charset="utf-8" />  
 
-<input type="radio" name="attr_tab" class="sheet-tabstogggle" value="Identite" checked="checked">Identité & Compétences<span title="Identite"></span>
-<input type="radio" name="attr_tab" class="sheet-tabstogggle" value="Inventaire">Inventaire<span title="Inventaire"></span>
-<input type="radio" name="attr_tab" class="sheet-tabstogggle" value="Capacites">Capacités<span title="Capacites"></span>
-<input type="radio" name="attr_tab" class="sheet-tabstogggle" value="Modificateurs">Modificateurs<span title="Modificateurs"></span>
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="character"  />
+<div>
+    <button type="action" name="act_identite" >Identité</button>
+    <button type="action" name="act_inventaire" >Iventaire</button>
+    <button type="action" name="act_capacites" >Capacités</button>
+    <button type="action" name="act_modificateur" >Modificateurs</button>
+</div>
 
-<div class="sheet-tab-content sheet-tab1">
+<div class="sheet-Identite">
     <img src="https://cdn.discordapp.com/attachments/654444450088747009/999802282457698404/Identite_et_Compe.png" style="margin-bottom: 25px;">
         <div class="sheet-col">
                 <table style="width: 95%;">
@@ -205,7 +208,7 @@
         </table>
 </div>
 
-<div class="sheet-tab-content sheet-tab2">
+<div class="sheet-Inventaire">
     <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803697016082522/Invetaire.png">
         <table>
             <td>
@@ -287,7 +290,7 @@
         </fieldset>
     </table>
 </div>
-<div class="sheet-tab-content sheet-tab3">
+<div class="sheet-Capacites">
     <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803696676347974/Capacite.png">   
     <img src=https://cdn.discordapp.com/attachments/654444450088747009/999808122094887012/Capacite_Passives.png>
     <table>
@@ -367,7 +370,7 @@
     </tr>    
 </table>
 </div>
-<div class="sheet-tab-content sheet-tab4">
+<div class="sheet-Modificateurs">
     <img src="https://cdn.discordapp.com/attachments/654444450088747009/999803696332427395/Modificateurs.png">
     <table style="width: 100%;">
         <tr>
