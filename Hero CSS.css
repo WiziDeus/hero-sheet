@@ -1,7 +1,6 @@
 .charsheet 
 {
-    background-color:#EEEEEE;
-    background-image: url("https://cdn.discordapp.com/attachments/960908699445108780/974333728958603264/bg_1_copie.png");
+    background-color:#000338;
     background-repeat:no-repeat;
     background-position:center;
 }
@@ -33,24 +32,18 @@ textarea {
 
 div.sheet-tab-content { display: none; }
 
-input.sheet-tab1:checked ~ div.sheet-tab1,
-input.sheet-tab2:checked ~ div.sheet-tab2,
-input.sheet-tab3:checked ~ div.sheet-tab3,
-input.sheet-tab4:checked ~ div.sheet-tab4 
-{ display: block; }
-
 /*Configure the tab buttons*/
-.charsheet .sheet-Stats,
+.charsheet .sheet-Identite,
 .charsheet .sheet-Inventaire,
-.charsheet .sheet-Competences 
+.charsheet .sheet-Capacites,
 .charsheet .sheet-Modificateurs{
     display: none;
 }
 
 /* show the selected tab */
-.charsheet .sheet-tabstoggle[value="Stats"] ~ div.sheet-Stats,
+.charsheet .sheet-tabstoggle[value="Identite"] ~ div.sheet-Identite,
 .charsheet .sheet-tabstoggle[value="Inventaire"] ~ div.sheet-Inventaire,
-.charsheet .sheet-tabstoggle[value="Competences"] ~ div.sheet-Competences,
+.charsheet .sheet-tabstoggle[value="Capacites"] ~ div.sheet-Capacites,
 .charsheet .sheet-tabstoggle[value="Modificateurs"] ~ div.sheet-Modificateurs {
     display: block;
 }
